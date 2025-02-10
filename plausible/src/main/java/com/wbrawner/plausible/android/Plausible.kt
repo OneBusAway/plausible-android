@@ -57,6 +57,15 @@ object Plausible {
                 .w("Ignoring call to setUserAgent(). Did you forget to call Plausible.init()?")
     }
 
+    fun setDomain(domain: String) {
+        config.get()
+            ?.let {
+                it.domain = domain
+            }
+            ?: Timber.tag("Plausible")
+                .w("Ignoring call to setDomain(). Did you forget to call Plausible.init()?")
+    }
+
     /**
      * Send a `pageview` event.
      *
